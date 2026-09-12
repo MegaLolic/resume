@@ -41,8 +41,8 @@
     gap: 24px;
   }
   .photo {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent);
@@ -109,7 +109,7 @@
     margin: 24px 0 14px;
     position: relative;
   }
-  
+
   h2:first-child { margin-top: 0; }
 
   .item {
@@ -211,38 +211,133 @@
     color: #222;
   }
 
+  .course-list {
+    columns: 2;
+    column-gap: 28px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .course-list li {
+    font-size: 13.5px;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    break-inside: avoid;
+    color: #2a2a2a;
+  }
+  .course-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
   @media (max-width: 700px) {
     .resume { padding: 24px 20px; }
     .body { grid-template-columns: 1fr; gap: 0; }
     header { flex-direction: column; align-items: center; text-align: center; }
     .contacts { justify-content: center; }
   }
+
   @media print {
-    body { padding: 0; background: #fff; }
-    .resume { box-shadow: none; border-radius: 0; padding: 0; }
+    @page {
+      size: A4;
+      margin: 9mm 11mm;
+    }
+    body {
+      padding: 0;
+      background: #fff;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .resume {
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      max-width: none;
+    }
+
+    header {
+      padding: 0 0 14px;
+      margin-bottom: 18px;
+      gap: 20px;
+    }
+    .photo {
+      width: 100px;
+      height: 100px;
+      box-shadow: 0 0 0 3px var(--accent-soft);
+      border-width: 3px;
+    }
+    h1 { font-size: 25px; margin-bottom: 5px; }
+    .position { font-size: 12px; padding: 3px 11px; margin-bottom: 10px; }
+    .contacts { font-size: 12px; gap: 5px 16px; }
+
+    .body {
+      grid-template-columns: 1fr 245px;
+      gap: 30px;
+    }
+
+    h2 {
+      font-size: 11.5px;
+      margin: 18px 0 11px;
+      padding-bottom: 4px;
+      border-bottom-width: 3px;
+    }
+    aside h2:not(:first-child) { margin-top: 16px; }
+
+    p { font-size: 12px; }
+    .item {
+      margin-bottom: 7px;
+      padding: 4px 10px;
+    }
+    .item-title { font-size: 12.5px; }
+    .item-meta { font-size: 11.5px; margin-bottom: 4px; }
+    .item li {
+      font-size: 12px;
+      margin-bottom: 3px;
+      padding-left: 14px;
+    }
+
+    .edu-label { font-size: 11.5px; }
+    .edu-label strong { min-width: 100px; }
+    .edu-value {
+      font-size: 11.5px;
+      padding: 3px 9px;
+      margin-top: 3px;
+    }
+    .edu-grid { gap: 3px; }
+
+    .course-list li { font-size: 12px; margin-bottom: 3px; }
+
+    aside {
+      padding: 0 14px 14px;
+      border-radius: 5px;
+    }
+    .skill-group { margin-bottom: 8px; }
+    .skill-group-title { font-size: 11px; margin-bottom: 4px; }
+    .skill-list li {
+      font-size: 11.5px;
+      padding: 3px 7px;
+      margin-bottom: 3px;
+    }
+    .lang {
+      font-size: 11.5px;
+      padding: 3px 7px;
+      margin-bottom: 3px;
+    }
+
+    .item, .skill-group, .edu-grid, .course-list li { break-inside: avoid; }
+    h2 { break-after: avoid; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .position, .edu-value, aside, .skill-list li, .lang {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   }
-  .course-list {
-  columns: 2;
-  column-gap: 28px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.course-list li {
-  font-size: 13.5px;
-  padding-left: 14px;
-  position: relative;
-  margin-bottom: 3px;
-  break-inside: avoid;
-  color: #2a2a2a;
-}
-.course-list li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-weight: 700;
-}
 </style>
 </head>
 <body>
@@ -270,14 +365,14 @@
 
       <h2>Проекты</h2>
       <div class="item">
-        <div class="item-title">FinAssistant - учёт личных финансов</div>
-        <div class="item-meta">Java 17, Spring Boot, Spring MVC, Spring Data JPA, Spring Security (JWT), Hibernate, PosthreSQL, Kafka, Docker</div>
+        <div class="item-title">FinAssistant — учёт личных финансов</div>
+        <div class="item-meta">Java 17, Spring Boot, Spring MVC, Spring Data JPA, Spring Security (JWT), Hibernate, PostgreSQL, Kafka, Docker</div>
         <ul>
           <li>REST API на Spring Boot с JWT-аутентификацией: транзакции, категории, бюджет, расчёт баланса и проектирование схемы БД через Hibernate/JPA.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="item-title">Task Manager - сервис управления задачами</div>
+        <div class="item-title">Task Manager — сервис управления задачами</div>
         <div class="item-meta">Java 17, Spring Boot, Spring MVC, Spring Data JPA, Spring Security, Hibernate, MySQL</div>
         <ul>
           <li>REST API для CRUD-операций над задачами и проектами.</li>
@@ -285,8 +380,8 @@
         </ul>
       </div>
       <div class="item">
-        <div class="item-title">Salesforce CRM - сервисы автоматизации</div>
-        <div class="item-meta">Apex, JavaScript, Node.js </div>
+        <div class="item-title">Salesforce CRM — сервисы автоматизации</div>
+        <div class="item-meta">Apex, JavaScript, Node.js</div>
         <ul>
           <li>Администрирование и программирование сервисов в CRM-системе.</li>
         </ul>
@@ -300,22 +395,21 @@
           <div class="edu-label"><strong>Специальность:</strong> Радиофизика и информационные технологии</div>
           <div><span class="edu-value">Квалификация: Радиофизик. Инженер-программист</span></div>
           <div class="edu-label"><strong>Дата выпуска:</strong> 2027</div>
-          <div class="edu-label"><strong>Диплом:</strong> Вычисление выходных сопротивлений термометров сопротивления, расчёт точки росы. Разработка онлайн калькулятора</div>
-          <div class="edu-label"><strong>Научный руководитель:</strong> Леонтьев А.В. к.ф.-м.н. доцент кафедры физической электроники и нанотехнологий ФРКТ БГУ</div>
+          <div class="edu-label"><strong>Диплом:</strong> Вычисление выходных сопротивлений термометров сопротивления, расчёт точки росы. Разработка онлайн-калькулятора</div>
+          <div class="edu-label"><strong>Научный руководитель:</strong> Леонтьев А.В., к.ф.-м.н., доцент кафедры физической электроники и нанотехнологий ФРКТ БГУ</div>
         </div>
       </div>
 
       <h2>Пройденные курсы</h2>
-        <ul class="course-list">
-            <li>Математический анализ</li>
-            <li>Линейная алгебра и аналитическая геометрия</li>
-            <li>Теория вероятностей и мат. статистика</li>
-            <li>Кибербезопасность</li>
-            <li>Компьютерные сети</li>
-            <li>Вычислительная практика С++</li>
-        </ul>
+      <ul class="course-list">
+        <li>Математический анализ</li>
+        <li>Линейная алгебра и аналитическая геометрия</li>
+        <li>Теория вероятностей и мат. статистика</li>
+        <li>Кибербезопасность</li>
+        <li>Компьютерные сети</li>
+        <li>Вычислительная практика C++</li>
+      </ul>
     </main>
-
 
     <aside>
       <h2>Навыки</h2>
@@ -323,8 +417,8 @@
       <div class="skill-group">
         <div class="skill-group-title">Языки</div>
         <ul class="skill-list">
-          <li>Java (Core, Swing, Collections), Python, C, C++, R, JavaScript(NodeJs)</li>
-          <li>HTML, CSS(standart,salesforce-slds)</li>
+          <li>Java (Core, Swing, Collections), Python, C, C++, R, JavaScript (Node.js)</li>
+          <li>HTML, CSS (standard, salesforce-slds)</li>
           <li>Assembler, Apex, SQL</li>
         </ul>
       </div>
@@ -363,14 +457,14 @@
         <div class="skill-group-title">Сети</div>
         <ul class="skill-list">
           <li>TCP/IP, OSI, DHCP, UDP, FTP, DNS, TLS, Telnet, HTTP/s, Wi-Fi, Bluetooth, SSH</li>
-          <li>Cisco Packet Tracer, WireShark</li>
+          <li>Cisco Packet Tracer, Wireshark</li>
         </ul>
       </div>
 
       <div class="skill-group">
         <div class="skill-group-title">Учебное ПО</div>
         <ul class="skill-list">
-          <li>MS Office, MatLab, Origin, Wolfram Mathematica, </li>
+          <li>MS Office, MATLAB, Origin, Wolfram Mathematica</li>
         </ul>
       </div>
 
