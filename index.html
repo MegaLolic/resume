@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Резюме — Турабоев Арслан</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --accent: #8a2b2b;
+    --accent-dark: #5c1a1a;
+    --accent-soft: #f7ecec;
+    --accent-line: #d9b8b8;
+    --gold: #b07a2a;
+    --ink: #1f1f1f;
+    --muted: #6a6a6a;
+    --muted-light: #8a8a8a;
+  }
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #faf7f5;
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+  .resume {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 36px 34px;
+    border-radius: 6px;
+    box-shadow: 0 2px 14px rgba(138, 43, 43, 0.08);
+  }
+
+  header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 18px;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+    flex-shrink: 0;
+  }
+  .header-info { flex: 1; }
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+    color: var(--accent-dark);
+  }
+  .position {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .contacts {
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    color: #333;
+  }
+  .contacts span {
+    position: relative;
+    padding-left: 12px;
+  }
+  .contacts span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 40px;
+  }
+
+  h2 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-dark);
+    border-bottom: 3px solid var(--accent-line);
+    padding-bottom: 5px;
+    margin: 24px 0 14px;
+    position: relative;
+  }
+  
+  h2:first-child { margin-top: 0; }
+
+  .item {
+    margin-bottom: 6px;
+    padding: 4px 12px;
+    border-left: 3px solid var(--accent-soft);
+  }
+  .item-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent-dark);
+    margin-bottom: 2px;
+  }
+  .item-meta {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .item ul { list-style: none; }
+  .item li {
+    font-size: 13.5px;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 3px;
+    color: #2a2a2a;
+  }
+  .item li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  p { font-size: 13.5px; color: #2a2a2a; }
+
+  /* Образование */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .edu-label { font-size: 13px; color: #222; }
+  .edu-label strong {
+    display: inline-block;
+    min-width: 108px;
+    color: var(--muted-light);
+    font-weight: 400;
+  }
+  .edu-value {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+
+  /* Сайдбар */
+  aside {
+    background: var(--accent-soft);
+    padding: 0 16px 18px;
+    border-radius: 6px;
+    align-self: start;
+  }
+  aside h2 {
+    border-bottom-color: var(--accent-line);
+  }
+  aside h2:not(:first-child) { margin-top: 20px; }
+
+  .skill-group { margin-bottom: 10px; }
+  .skill-group-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 12.5px;
+    padding: 3px 8px;
+    margin-bottom: 3px;
+    background: #fff;
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    color: #222;
+  }
+
+  .lang {
+    font-size: 13px;
+    padding: 4px 8px;
+    background: #fff;
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    margin-bottom: 4px;
+    color: #222;
+  }
+
+  @media (max-width: 700px) {
+    .resume { padding: 24px 20px; }
+    .body { grid-template-columns: 1fr; gap: 0; }
+    header { flex-direction: column; align-items: center; text-align: center; }
+    .contacts { justify-content: center; }
+  }
+  @media print {
+    body { padding: 0; background: #fff; }
+    .resume { box-shadow: none; border-radius: 0; padding: 0; }
+  }
+  .course-list {
+  columns: 2;
+  column-gap: 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.course-list li {
+  font-size: 13.5px;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 3px;
+  break-inside: avoid;
+  color: #2a2a2a;
+}
+.course-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+<div class="resume">
+
+  <header>
+    <img class="photo" src="photo.jpg" alt="Фото">
+    <div class="header-info">
+      <h1>Турабоев Арслан Рамзизович</h1>
+      <div class="position">Java Developer (Junior)</div>
+      <div class="contacts">
+        <span>turaboev06@gmail.com</span>
+        <span>telergam: arrtur989</span>
+        <span>Минск, Беларусь</span>
+        <span>github.com/MegaLolic</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <main>
+      <h2>О себе</h2>
+      <p>Java-разработчик backend-приложений на Spring Boot. Реализовал pet-проекты с REST API, JWT-аутентификацией и работой с реляционными БД. Теоретическая база по алгоритмам и компьютерным сетям.</p>
+
+      <h2>Проекты</h2>
+      <div class="item">
+        <div class="item-title">FinAssistant — учёт личных финансов</div>
+        <div class="item-meta">Java 17, Spring Boot, Spring MVC, Spring Data JPA, Spring Security (JWT), Hibernate, PosthreSQL, Kafka, Docker</div>
+        <ul>
+          <li>REST API на Spring Boot с JWT-аутентификацией: транзакции, категории, бюджет, расчёт баланса и проектирование схемы БД через Hibernate/JPA.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-title">Task Manager — сервис управления задачами</div>
+        <div class="item-meta">Java 17, Spring Boot, Spring MVC, Spring Data JPA, Spring Security, Hibernate, MySQL</div>
+        <ul>
+          <li>REST API для CRUD-операций над задачами и проектами.</li>
+          <li>Авторизация, разделение ролей, валидация входных данных.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-title">Salesforce CRM — сервисы автоматизации</div>
+        <div class="item-meta">Apex, JavaScript, Node.js </div>
+        <ul>
+          <li>Администрирование и программирование сервисов в CRM-системе.</li>
+        </ul>
+      </div>
+
+      <h2>Образование</h2>
+      <div class="item">
+        <div class="item-title">Белорусский государственный университет (БГУ)</div>
+        <div class="edu-grid">
+          <div class="edu-label"><strong>Факультет:</strong> Радиофизики и компьютерных технологий</div>
+          <div class="edu-label"><strong>Специальность:</strong> Радиофизика и информационные технологии</div>
+          <div><span class="edu-value">Квалификация: Радиофизик. Инженер-программист</span></div>
+          <div class="edu-label"><strong>Дата выпуска:</strong> 2027</div>
+          <div class="edu-label"><strong>Диплом:</strong> Вычисление выходных сопротивлений термометров сопротивления, расчёт точки росы. Разработка онлайн калькулятора</div>
+        </div>
+      </div>
+
+      <h2>Пройденные курсы</h2>
+        <ul class="course-list">
+            <li>Математический анализ</li>
+            <li>Линейная алгебра и аналитическая геометрия</li>
+            <li>Теория вероятностей и мат. статистика</li>
+            <li>Кибербезопасность</li>
+            <li>Компьютерные сети</li>
+            <li>Компьютерные сети</li>
+
+        </ul>
+    </main>
+
+
+    <aside>
+      <h2>Навыки</h2>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Языки</div>
+        <ul class="skill-list">
+          <li>Java (Core, Swing, Collections), Python, C, C++, R</li>
+          <li>HTML, CSS(standart,salesforce-slds)</li>
+          <li>Assembler, Apex, SQL</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Spring</div>
+        <ul class="skill-list">
+          <li>Boot, MVC, Data JPA, Security, AOP</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Данные</div>
+        <ul class="skill-list">
+          <li>JPA / Hibernate / JDBC</li>
+          <li>MySQL, MS SQL Server, PostgreSQL, InfluxDB</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Интеграция</div>
+        <ul class="skill-list">
+          <li>REST API, SOAP</li>
+          <li>Apache Kafka</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">DevOps</div>
+        <ul class="skill-list">
+          <li>Docker, Kubernetes, Git</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Сети</div>
+        <ul class="skill-list">
+          <li>TCP/IP, OSI, DHCP, UDP, FTP, DNS, TLS, Telnet, HTTP/s, Wi-Fi, Bluetooth, SSH</li>
+          <li>Cisco Packet Tracer, WireShark</li>
+        </ul>
+      </div>
+
+      <h2>Языки</h2>
+      <div class="lang">Русский — родной</div>
+      <div class="lang">English — A2+</div>
+    </aside>
+
+  </div>
+</div>
+</body>
+</html>
