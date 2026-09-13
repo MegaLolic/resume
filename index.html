@@ -241,16 +241,16 @@
     .contacts { justify-content: center; }
   }
 
-  @media print {
+    @media print {
     @page {
       size: A4;
-      margin: 9mm 11mm;
+      margin: 8mm 10mm;
     }
     body {
       padding: 0;
       background: #fff;
-      font-size: 12.5px;
-      line-height: 1.45;
+      font-size: 11.8px;
+      line-height: 1.42;
     }
     .resume {
       box-shadow: none;
@@ -260,71 +260,71 @@
     }
 
     header {
-      padding: 0 0 14px;
-      margin-bottom: 18px;
-      gap: 20px;
+      padding: 0 0 12px;
+      margin-bottom: 16px;
+      gap: 19px;
     }
     .photo {
-      width: 100px;
-      height: 100px;
+      width: 92px;
+      height: 92px;
       box-shadow: 0 0 0 3px var(--accent-soft);
       border-width: 3px;
     }
-    h1 { font-size: 25px; margin-bottom: 5px; }
-    .position { font-size: 12px; padding: 3px 11px; margin-bottom: 10px; }
-    .contacts { font-size: 12px; gap: 5px 16px; }
+    h1 { font-size: 24px; margin-bottom: 4px; }
+    .position { font-size: 11.3px; padding: 3px 10px; margin-bottom: 9px; }
+    .contacts { font-size: 11.3px; gap: 5px 15px; }
 
     .body {
-      grid-template-columns: 1fr 245px;
-      gap: 30px;
+      grid-template-columns: 1fr 234px;
+      gap: 27px;
     }
 
     h2 {
-      font-size: 11.5px;
-      margin: 18px 0 11px;
+      font-size: 11.3px;
+      margin: 15px 0 10px;
       padding-bottom: 4px;
       border-bottom-width: 3px;
     }
-    aside h2:not(:first-child) { margin-top: 16px; }
+    aside h2:not(:first-child) { margin-top: 14px; }
 
-    p { font-size: 12px; }
+    p { font-size: 11.8px; }
     .item {
-      margin-bottom: 7px;
-      padding: 4px 10px;
+      margin-bottom: 5px;
+      padding: 3px 9px;
     }
-    .item-title { font-size: 12.5px; }
-    .item-meta { font-size: 11.5px; margin-bottom: 4px; }
+    .item-title { font-size: 12.3px; }
+    .item-meta { font-size: 11.3px; margin-bottom: 3px; }
     .item li {
-      font-size: 12px;
-      margin-bottom: 3px;
-      padding-left: 14px;
+      font-size: 11.8px;
+      margin-bottom: 2px;
+      padding-left: 13px;
     }
 
-    .edu-label { font-size: 11.5px; }
-    .edu-label strong { min-width: 100px; }
+    .edu-label { font-size: 11.3px; }
+    .edu-label strong { min-width: 95px; }
     .edu-value {
-      font-size: 11.5px;
-      padding: 3px 9px;
+      font-size: 11.3px;
+      padding: 3px 8px;
       margin-top: 3px;
     }
-    .edu-grid { gap: 3px; }
+    .edu-grid { gap: 2px; }
 
-    .course-list li { font-size: 12px; margin-bottom: 3px; }
+    .course-list li { font-size: 11.8px; margin-bottom: 2px; }
 
     aside {
-      padding: 0 14px 14px;
+      padding: 0 13px 13px;
       border-radius: 5px;
     }
-    .skill-group { margin-bottom: 8px; }
-    .skill-group-title { font-size: 11px; margin-bottom: 4px; }
+    .skill-group { margin-bottom: 7px; }
+    .skill-group-title { font-size: 10.7px; margin-bottom: 3px; }
     .skill-list li {
-      font-size: 11.5px;
-      padding: 3px 7px;
-      margin-bottom: 3px;
+      font-size: 11.3px;
+      padding: 2px 6px;
+      margin-bottom: 2px;
     }
     .lang {
-      font-size: 11.5px;
-      padding: 3px 7px;
+      font-size: 11.3px;
+      padding: 2px 6px;
       margin-bottom: 3px;
     }
 
@@ -333,7 +333,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    .position, .edu-value, aside, .skill-list li, .lang {
+    .position, .edu-value, aside, .skill-list li, .lang, .photo {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -361,7 +361,7 @@
 
     <main>
       <h2>О себе</h2>
-      <p>Выпускник БГУ, квалификация «Радиофизик. Инженер-программист». Сочетаю фундаментальную подготовку по радиофизике и электронике с практическими навыками разработки ПО: backend на Java/Spring Boot, обработка данных на Python/C++/R, численное моделирование. Открыт к позициям инженера-программиста и Java Developer (Junior) в области backend-разработки.</p>
+      <p>Выпускник БГУ, квалификация «Радиофизик. Инженер-программист». Сочетаю фундаментальную подготовку по радиофизике и электронике с практическими навыками разработки ПО: backend на Java/Spring Boot, обработка данных на Python/C++/R, численное моделирование. Ищу позицию стажировку или junior-позицию Java Developer в области backend-разработки.</p>
 
       <h2>Проекты</h2>
       <div class="item">
@@ -414,9 +414,6 @@
         <li>Компьютерные сети</li>
         <li>Вычислительная практика C++</li>
         <li>Архитектура компьютера</li>
-        <li>Микроконтроллеры</li>
-        <li>Интегральная электроника</li>
-        <li>Физика твёрдого тела</li>
         <li>Имитационное моделирование</li>
       </ul>
     </main>
